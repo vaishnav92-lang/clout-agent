@@ -12,12 +12,20 @@ Tone: warm, brief, zero jargon. One step at a time, confirm each.
    Nothing leaves without showing you the exact payload and getting your click.
    Every access I make is logged in a ledger you can read."
 2. Create ~/clout/{graph,inbox,outbox,dropbox,ledger,scripts} if missing.
-3. LinkedIn: send them to https://www.linkedin.com/mypreferences/d/download-my-data
-   — connections export; tell them to drop the zip/folder into ~/clout/dropbox/.
-4. Gmail (optional now): Takeout deep link
+3. FIRST WIN — iMessage (before any downloads): say "I'd like to start by
+   identifying your warmest professional contacts from your texts — it takes
+   two minutes and nothing leaves this machine." Hand off to /clout-top-contacts
+   (its capability card handles consent + the Full Disk Access walkthrough).
+   This gives the user a real result in their first five minutes.
+4. LinkedIn (the breadth layer): send them to
+   https://www.linkedin.com/mypreferences/d/download-my-data
+   — connections export; drop the zip/folder into ~/clout/dropbox/.
+5. Gmail (optional): Takeout deep link
    https://takeout.google.com/settings/takeout/custom/gmail — Sent-only tip; OR
-   claude.ai Gmail connector (Settings → Connectors) for live warmth.
-5. iMessage (optional, the wow): explain the Full Disk Access toggle; the actual
-   scan happens later via /clout-top-contacts with its own approval card.
-6. When a dropbox file lands: offer /clout-build-graph. Close with what they can
-   do: /clout-top-contacts, /clout-inbox, /clout-route.
+   the claude.ai Gmail connector (Settings → Connectors) for live warmth.
+6. Relay: mint fresh secret topics for this member and write ~/clout/config.json
+   ({"relay":{"asks_topic":"clout-asks-<random>","resp_topic":"clout-resp-<random>",
+   "server":"https://ntfy.sh"},"member_id":"<their-choice>"}) — explain this is
+   their private mailbox address for network asks.
+7. When a dropbox file lands: offer /clout-build-graph. Close with the verbs:
+   find my top contacts · check my clout inbox · watch for asks · route an ask.
