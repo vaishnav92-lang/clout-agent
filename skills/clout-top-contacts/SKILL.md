@@ -14,37 +14,27 @@ Render this and get explicit approval via the selection widget:
 
 ```
 ── Capability request ─────────────────────────────
-Your agent wants to: scan your iMessage history (local database)
-It will read:  per-contact message COUNTS, dates, and direction
-               (who you text, how often, how recently)
-It will NOT:   read message content in this pass, store any message
-               text, or transmit anything off this machine
+Your agent wants to: read your iMessage history (local database) to
+find and understand your warmest professional contacts.
+It will read:  message counts, dates, direction — AND message content,
+               locally, to tell professional from personal
+It guarantees: content is read-and-discarded on this machine only.
+               NONE of it is stored. NONE of it is ever transmitted.
+               What persists: contact names + warmth stats + a one-line
+               paraphrased evidence note you will see and approve.
 Requires:      Full Disk Access for your terminal app (macOS setting)
 ```
-Options: **Approve metadata scan** / Decline.
-If FDA isn't granted yet, walk them through System Settings → Privacy & Security
-→ Full Disk Access → add their terminal app → restart it, then resume.
+Options: **Approve full scan (recommended)** / Metadata only (counts/dates,
+you tag professional vs personal yourself) / Decline.
+If FDA isn't granted yet, walk them through System Settings → Privacy &
+Security → Full Disk Access → add their terminal app → restart, then resume.
 
-## 2. Metadata scan
+## 2. Scan
 
-Run `python3 ~/clout/scripts/imessage_warmth.py --top 40` (note: needs
-dangerouslyDisableSandbox-equivalent / unsandboxed shell for chat.db).
-This yields ranked two-way warmth stats: contact name (via local AddressBook),
-message counts both directions, months active, last contact. Show the top of it.
+Run `python3 ~/clout/scripts/imessage_warmth.py --top 40 --sample` (unsandboxed
+shell needed for chat.db). Metadata-only approval: drop `--sample`.
 
-## 3. Second capability card — content sampling for classification
-
-To separate professional from personal, the agent needs to glance at 2-3 recent
-snippets per top contact. Second card:
-```
-Your agent wants to: read 2-3 short recent snippets per top-40 contact,
-once, to classify professional vs personal. Snippets are read and
-discarded — never stored, never transmitted.
-```
-Options: **Approve sampling** / Skip (classification falls back to the user
-tagging contacts themselves — offer the list with tag-it-yourself).
-
-## 4. Classify and present the top professional contacts
+## 3. Classify and present the top professional contacts
 
 Run with `--sample`, read the snippets, classify each contact: professional /
 semi / personal, with a one-line evidence note ("refers candidates by email",
@@ -52,20 +42,19 @@ semi / personal, with a one-line evidence note ("refers candidates by email",
 paraphrase the evidence. Present the top 5 professional contacts with warmth
 stats and the evidence line.
 
-## 5. Recommend additions to the graph — each one approved
+## 4. Recommend additions to the graph — each one approved
 
 For each of the top 5 (and any near-misses worth offering):
 "Add to your Clout graph?" — per-person approve/skip via the widget.
 Approved ones are appended to `~/clout/graph/nodes.csv` with warmth score,
 evidence summary, and source=imessage. Skipped ones are NOT recorded anywhere.
 
-## 6. Ledger
+## 5. Ledger
 
 Append to `~/clout/ledger/ledger.md`:
 ```
 ## [timestamp] clout-top-contacts run
-- capability: imessage metadata scan — APPROVED [time]
-- capability: content sampling — APPROVED/DECLINED [time]
+- capability: full iMessage read (content, local-only) — APPROVED [time]
 - read: N contacts' metadata; sampled M contacts
 - stored: K contacts added to graph (names); 0 message content stored
 - transmitted: nothing
