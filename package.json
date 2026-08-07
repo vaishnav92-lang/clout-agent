@@ -1,0 +1,8 @@
+{
+  "name": "clout-agent",
+  "version": "0.1.0",
+  "description": "Your network, mapped by your own agent, on your own machine. A markdown file and a mailbox.",
+  "bin": { "clout-agent": "bin/install.js" },
+  "repository": "github:vaishnav92-lang/clout-agent",
+  "license": "MIT"
+}
