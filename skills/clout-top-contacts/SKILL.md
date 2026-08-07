@@ -8,6 +8,12 @@ description: "The Clout warm-network discovery moment: with the user's explicit 
 Everything runs on this machine. Nothing is transmitted anywhere. The output is a
 recommendation list the user approves person-by-person into their local graph.
 
+## 0. Frame it (this step comes LAST in onboarding, after LinkedIn)
+Say: "Would you like to add your warmest professional contacts from your texts to
+your network too? Clout is running live role-searches, and your texts are the
+truest signal for who you are actually close to — the people worth flagging first
+when a role fits. It all stays on this machine." Then show the card.
+
 ## 1. The capability card — BEFORE touching anything
 
 Render this and get explicit approval via the selection widget:

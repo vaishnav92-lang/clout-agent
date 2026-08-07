@@ -17,6 +17,7 @@ for (const s of fs.readdirSync(skillsSrc)) {
   fs.copyFileSync(src, path.join(skillsDst, s, 'SKILL.md')); n++;
 }
 fs.copyFileSync(path.join(pkgRoot,'workspace-CLAUDE.md'), path.join(home,'clout','CLAUDE.md'));
+  try { fs.copyFileSync(path.join(pkgRoot,'live-roles.md'), path.join(home,'clout','live-roles.md')); } catch(e){}
 for (const f of fs.readdirSync(path.join(pkgRoot,'scripts')))
   fs.copyFileSync(path.join(pkgRoot,'scripts',f), path.join(home,'clout','scripts',f));
 console.log(`\nClout agent installed: ${n} skills -> ~/.claude/skills, scripts -> ~/clout/scripts`);
