@@ -10,8 +10,8 @@ Open by naming what Clout is recruiting for right now (read ~/clout/live-roles.m
 and name 1-2 concrete roles). Frame the whole thing:
 "Clout is currently recruiting for roles like <role A> and <role B>. Members help
 by flagging who in their network could be a good fit — or who might know good
-candidates. To do that, I build a private map of your network, right here on your
-machine. Nothing leaves without your say-so, and you earn referral credit when
+candidates. To do that, I map your LinkedIn network, then use your texts and email to see who
+you are actually close to — so when a role fits, you know who you can really reach. Nothing leaves without your say-so, and you earn referral credit when
 someone you point to gets hired."
 
 Then run onboarding IN THIS ORDER (/clout-setup):

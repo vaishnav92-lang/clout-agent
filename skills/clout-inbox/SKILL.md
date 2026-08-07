@@ -10,10 +10,23 @@ Asks are JSON files in `~/clout/inbox/` not yet answered (no matching file in
 `~/clout/outbox/`). Schema: {id, from, created, ask_type, role_title,
 structured_ask{domain, capabilities, constraints, archetypes}, response_options}.
 
-## 2. Match locally — private, full detail
-For each ask, search `~/clout/graph/nodes.csv` (and only it — this skill never
-touches mail/messages) using the ask's archetypes/signatures: candidates AND
-people-who-might-know. Full findings stay in the private block.
+## 2. Match — LinkedIn breadth, then warmth overlay (the core method)
+Two stages, in this order:
+
+**Stage A — role match over LinkedIn breadth.** Search `~/clout/graph/nodes.csv`
+(the LinkedIn spine) for the ask's archetypes/signatures — people whose title,
+company, or history could BE the role, and people who could KNOW candidates.
+This casts wide: dozens of plausible names. No warmth yet.
+
+**Stage B — warmth overlay, computed on the match set only.** For those matched
+names, check the user's actual closeness: cross-reference against iMessage
+(via AddressBook name match) and Gmail (thread history) to see who they truly
+talk to. This is where reachability comes from — a perfect-fit stranger is worth
+little; a good-fit person you text weekly is gold.
+
+Rank the results warm-first. The headline is not "who fits" — it is "who fits
+THAT YOU CAN ACTUALLY REACH." Cold-but-strong matches list below, flagged
+"no personal warmth — would be a cold intro."
 
 ## 3. Render THE CARD — a labeled dialogue between two parties
 ```

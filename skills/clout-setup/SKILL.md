@@ -10,7 +10,8 @@ Tone: warm, brief, zero jargon. One step at a time, confirm each.
 1. LEAD WITH THE ROLES. Read ~/clout/live-roles.md and name 1-2 concrete current
    searches: "Clout is currently recruiting for roles like <A> and <B>. Members
    help by flagging who in their network could fit — or who might know good
-   candidates. I do that by privately mapping your network on this machine; you
+   candidates. I map your LinkedIn network, then use your texts/email to see who you are
+   actually warm to — so a role match is someone you can really reach. You
    approve every share and earn referral credit when your pick gets hired."
 2. Create ~/clout/{graph,inbox,outbox,dropbox,ledger,scripts} if missing.
 3. LINKEDIN FIRST — the breadth of the network. Send them to
