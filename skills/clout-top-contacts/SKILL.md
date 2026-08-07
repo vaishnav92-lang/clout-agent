@@ -26,8 +26,13 @@ Requires:      Full Disk Access for your terminal app (macOS setting)
 ```
 Options: **Approve full scan (recommended)** / Metadata only (counts/dates,
 you tag professional vs personal yourself) / Decline.
-If FDA isn't granted yet, walk them through System Settings → Privacy &
-Security → Full Disk Access → add their terminal app → restart, then resume.
+If FDA isn't granted yet (test: try reading ~/Library/Messages/chat.db; "authorization
+denied" = not granted): OPEN THE SETTINGS PANE FOR THEM automatically —
+`open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"`
+— then say: "I've opened the right settings page. Click +, add your terminal app
+(Warp/Terminal/iTerm), make sure its toggle is on, then fully quit and reopen the
+terminal. When you're back, run `claude --resume` and pick this conversation —
+we'll continue exactly where we left off."
 
 ## 2. Scan
 

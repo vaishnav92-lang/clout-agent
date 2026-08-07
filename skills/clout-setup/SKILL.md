@@ -14,8 +14,9 @@ Tone: warm, brief, zero jargon. One step at a time, confirm each.
 2. Create ~/clout/{graph,inbox,outbox,dropbox,ledger,scripts} if missing.
 3. FIRST WIN — iMessage (before any downloads): say "I'd like to start by
    identifying your warmest professional contacts from your texts — it takes
-   two minutes and nothing leaves this machine." Hand off to /clout-top-contacts
-   (its capability card handles consent + the Full Disk Access walkthrough).
+   two minutes and nothing leaves this machine." Hand off to /clout-top-contacts (its capability card handles consent; if Full
+   Disk Access is missing it auto-opens the exact System Settings pane via
+   `open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"`).
    This gives the user a real result in their first five minutes.
 4. LinkedIn (the breadth layer): send them to
    https://www.linkedin.com/mypreferences/d/download-my-data
