@@ -16,11 +16,11 @@ for (const s of fs.readdirSync(skillsSrc)) {
   fs.mkdirSync(path.join(skillsDst, s), {recursive:true});
   fs.copyFileSync(src, path.join(skillsDst, s, 'SKILL.md')); n++;
 }
+fs.copyFileSync(path.join(pkgRoot,'workspace-CLAUDE.md'), path.join(home,'clout','CLAUDE.md'));
 for (const f of fs.readdirSync(path.join(pkgRoot,'scripts')))
   fs.copyFileSync(path.join(pkgRoot,'scripts',f), path.join(home,'clout','scripts',f));
 console.log(`\nClout agent installed: ${n} skills -> ~/.claude/skills, scripts -> ~/clout/scripts`);
 console.log('Everything it does is written in plain English you can read:');
 console.log('  https://github.com/vaishnav92-lang/clout-agent/tree/main/skills\n');
 console.log('Requires Claude Code + a Claude subscription. Start:');
-console.log('  cd ~/clout && claude');
-console.log('Then say: set up clout\n');
+console.log('  cd ~/clout && claude "set up clout"\n');
