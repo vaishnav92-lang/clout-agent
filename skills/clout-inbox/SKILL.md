@@ -15,35 +15,39 @@ For each ask, search `~/clout/graph/nodes.csv` (and only it — this skill never
 touches mail/messages) using the ask's archetypes/signatures: candidates AND
 people-who-might-know. Full findings stay in the private block.
 
-## 3. Render THE CARD — exactly this shape
+## 3. Render THE CARD — a labeled dialogue between two parties
 ```
-── Incoming ask #<id> · from <from> · <created> ─────────────
-THE QUESTION (verbatim):
-"<structured_ask rendered as the asker wrote it>"
+══ CLOUT AGENT SAYS ═══════════════════════════════════════
+"We have one open job: <role_title>.
+ <question_verbatim>
+ May your agent search your network graph for matches?
+ We will only ever receive what you explicitly approve."
 
-WHAT YOUR AGENT FOUND (private — only you see this):
-• <name> — <why they match> · warmth <n> (<evidence>)
+── YOUR AGENT (runs on this machine, works only for you) ──
+Clout is asking me to search your local graph (graph/nodes.csv
+only — never your mail or messages). Run the search?
+```
+**Gate 1 — run the search?** Options: Search my graph / Refuse the ask
+(sends "declined", nothing searched). Only on approval, search, then:
+```
+── YOUR AGENT · what I found (PRIVATE — Clout cannot see this) ──
+• <name> — <why> · warmth <n> (<evidence>)
 • ...
 
-PROPOSED RESPONSE (the exact payload that would be sent):
-"<payload text>"
-→ contains: <inventory: e.g. 'match count only. No names, no orgs,
-   no contact info'>
+══ CLOUT AGENT RECOMMENDS ═════════════════════════════════
+"Ideally: names + one-line context so we can pursue. But the
+ default is counts only — your call entirely."
+
+── YOUR AGENT · proposed payload (the EXACT bytes to send) ──
+"<payload>"
+→ contains: <inventory — e.g. match count only; no names, no contact info>
 ```
-The payload schema HAS NO FIELDS for phone/email — contact info is structurally
-impossible to send. Default proposal = counts only (most-trimmed).
+**Gate 2 — what goes back?** Options (most-trimmed first): Send counts only /
+Send names + context / Offer to refer someone (double opt-in + their own email) /
+Edit the payload / Decline.
+On send: echo "SENT TO CLOUT: <payload>" so the release moment is explicit.
 
-## 4. The gate (selection widget)
-Options, always in this order (most-trimmed first):
-1. **Send as proposed** (counts only)
-2. **Send with names + one-line context**
-3. **Offer to refer someone** — user picks who; the flow notes that the person
-   will be pinged for consent + their preferred email BEFORE any referral is
-   released (double opt-in; their reply is the only source of contact info)
-4. **Edit what goes back** — user's text becomes the payload verbatim
-5. **Decline** — sends "no matches"
-
-## 5. Release + ledger
+## 4. Release + ledger
 Write the chosen payload to `~/clout/outbox/<id>-response.json`. Append to
 `~/clout/ledger/ledger.md`:
 ```
