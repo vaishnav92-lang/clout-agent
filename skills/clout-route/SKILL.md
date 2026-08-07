@@ -1,6 +1,6 @@
 ---
 name: clout-route
-description: "The Clout routing engine: given an ask — a JD, an intro request, a 'who do you know who…' — search the user's local network graph and return the top warm paths, each with who/why/warmth evidence and a drafted intro note. Invoke with the ask as args (/clout-route <paste JD or ask>), or when Vaishnav says 'route this', 'who in my network', 'find me paths to X'. Read-only on the graph; drafts intros but sends nothing."
+description: "The Clout routing engine: given an ask — a JD, an intro request, a 'who do you know who…' — search the user's local network graph and return the top warm paths, each with who/why/warmth evidence and a drafted intro note. Invoke with the ask as args (/clout-route <paste JD or ask>), or when the user says 'route this', 'who in my network', 'find me paths to X'. Read-only on the graph; drafts intros but sends nothing."
 ---
 
 # /clout-route — ask in, warm paths out
@@ -11,7 +11,7 @@ Input: an ask, in any form — a full JD, one line ("who do I know that could hi
 Extract: what's being sought (person to hire / intro / advice / distribution), the domain and seniority, hard constraints (location, timezone, clearance), and who's asking (affects tone of drafted intros). If the ask is genuinely ambiguous, ask ONE clarifying question, not a survey.
 
 ## 2. Search the graph — layered, warmest-first
-Primary: `/Users/vaish/clout/graph/nodes.csv` — the unified graph (columns: name, emails, phones, linkedin, current_role, org, tags, warmth (0–3), warmth_evidence, last_alive, source, notes). If it doesn't exist or looks thin, say so and point the user to /clout-build-graph — never guess at a network.
+Primary: `~/clout/graph/nodes.csv` — the unified graph (columns: name, emails, phones, linkedin, current_role, org, tags, warmth (0–3), warmth_evidence, last_alive, source, notes). If it doesn't exist or looks thin, say so and point the user to /clout-build-graph — never guess at a network.
 
 Match on TWO axes, and keep them separate in your head:
 - **Candidates** — people who could BE the thing sought.
