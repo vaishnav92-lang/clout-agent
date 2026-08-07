@@ -58,3 +58,12 @@ Write the chosen payload to `~/clout/outbox/<id>-response.json`. Append to
 - This skill reads ONLY graph/nodes.csv and inbox/. Never mail, messages, files.
 - Nothing is written to outbox/ without a widget selection this session.
 - Contact fields never cross: schema-enforced, not judgment-enforced.
+
+## Watch mode — the server initiates, you only consent
+When the user says "wait for asks" / "watch my clout inbox": run a foreground
+poll loop (`until` new file appears: `python3 ~/clout/scripts/relay_pull.py`
+every ~15s, announce "watching — asks will appear here the moment they arrive").
+When an ask lands, IMMEDIATELY render its card and proceed through the gate.
+Real-life equivalent (set up by /clout-setup): a launchd job auto-pulls at
+boot/daily, and the member's phone subscribes to their ntfy asks topic — the
+push notification IS the doorbell; the terminal is only needed to answer it.
