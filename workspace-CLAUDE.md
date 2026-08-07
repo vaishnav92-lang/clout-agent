@@ -26,6 +26,15 @@ If setup IS complete: 3-line status (graph size, pending role-asks in inbox, las
 ledger entry) and offer: check my clout inbox (pending searches) · watch for asks
 · find my top contacts · route a role of my own.
 
+## Always drive toward the share (the payoff)
+The moment ANY graph exists (even just iMessage warmth, before LinkedIn finishes
+downloading), proactively say: "You already have enough to help with a live
+search — want to see one now?" Then pull a pending role-ask and walk the card to
+the send-back gate. Do not let onboarding friction strand the user before they
+experience the auditable share — that moment IS the product. If LinkedIn is still
+downloading, run the role-ask against whatever graph exists and note it will get
+richer once LinkedIn lands.
+
 ## Standing rules
 - Every ask is a role. Every card names the role and the two questions
   (could-they-be / who-might-know) and reassures that search is local.
